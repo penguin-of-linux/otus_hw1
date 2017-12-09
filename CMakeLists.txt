@@ -8,14 +8,15 @@ configure_file(version.h.in version.h)
 
 add_executable(helloworld_cli main.cpp)
 add_library(helloworld lib.cpp)
+add_test(test_version tests.cpp)
 
-set_target_properties(helloworld_cli helloworld tests.cpp PROPERTIES
+set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
     COMPILE_OPTIONS _Wpedantic -Wall -Wextra
 )
 
-set_target_properties(tests.cpp PROPERTIES
+set_target_properties(test_version PROPERTIES
     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
@@ -23,7 +24,7 @@ set_target_properties(tests.cpp PROPERTIES
 target_link_libraries(helloworld_cli helloworld)
 
 target_link_libraries(
-    tests.cpp
+    test_version
     ${Boost_LIBRARIES}
     helloworld
 )
@@ -40,5 +41,3 @@ set(CPATCH_PACKAGE_CONTACT penguin_of_linux@mail.ru)
 include (CPack)
 
 enable_testing()
-
-add_test(tests.cpp tests.cpp)
