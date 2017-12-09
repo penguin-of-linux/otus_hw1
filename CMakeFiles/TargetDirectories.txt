@@ -1,0 +1,2 @@
+/home/penguin_of_linux/Документы/otus_hw1/CMakeFiles/edit_cache.dir
+/home/penguin_of_linux/Документы/otus_hw1/CMakeFiles/rebuild_cache.dir
