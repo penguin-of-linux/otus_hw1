@@ -18,3 +18,8 @@ deploy:
       -upenguin-of-linux:$BINTRAY_API_KEY 
       "https://api.bintray.com/content/penguin-of-linux/otus_hw/helloworld/$TRAVIS_BUILD_NUMBER/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb
       ;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+after_success:
+  - git config --global user.email "penguin_of_linux@mail.ru"
+  - git config --global user.name "Name"
+  - git add --all
+  - git commit -am "Travis change"
