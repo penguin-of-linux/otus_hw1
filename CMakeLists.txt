@@ -14,7 +14,7 @@ add_test(test_version test_version.cpp)
 set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
-    COMPILE_OPTIONS _Wpedantic -Wall -Wextra
+    COMPILE_OPTIONS -Wpedantic -Wall -Wextra
 )
 
 set_target_properties(test_version PROPERTIES
